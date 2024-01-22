@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Hunting</title>
+    <!-- CCS -->
+<style>
+* {
+margin: 0;
+padding: 0;
+}
+
+html {
+cursor: crosshair;
+user-select: none;
+overflow: hidden;
+}
+
+.window {
+width: 100vw;
+height: 100vh;
+background-image: url('hunting_back ground.jpg');
+background-size: cover;
+background-position: bottom;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+img {
+width: 200px;
+position: absolute;
+}
+.time_and_score {
+height: 90px;
+border: 2px solid silver;
+border-radius: 4px;
+display: flex;
+background-color: rgb(133, 133, 33);
+}
+
+/* bird animation*/
+
+#b1 {
+right: 100%;
+animation: bird_animate1 8s linear infinite;
+z-index: 1;
+}
+
+
+#b2 {
+right: 100%;
+animation: bird_animate2 8s linear infinite;
+z-index: 3;
+}
+
+
+#b3 {
+right: 100%;
+animation: bird_animate3 7s linear infinite;
+z-index: 5;
+}
+
+#b4 {
+right: 100%;
+animation: bird_animate4 7s linear infinite;
+z-index: 4;
+}
+
+#b5 {
+right: 100%;
+animation: bird_animate5 6s linear infinite;
+animation-delay: 8s;
+z-index: 2;
+}
+
+
+#b6 {
+left: 100%;
+width: 150px;
+height: 150px;
+animation: bird_animate6 6s linear infinite;
+animation-delay: 4s;
+z-index: 10;
+}
+
+/* 
+keyframes for each bird */
+
+@keyframes bird_animate1 {
+0% { right: -30%; bottom: 60%; }
+25% { right: 20%; bottom: 30%; }
+50% { right: 40%; bottom: 60%; }
+75% { right: 74%; bottom: 45%; }
+100% { right: 110%; bottom: 68%; }
+}
+
+@keyframes bird_animate2 {
+0% { right: -30%; bottom: 80%; }
+25% { right: 40%; bottom: 40%; }
+50% { right: 70%; bottom: 72%; }
+75% { right: 97%; bottom: 25%; }
+100% { right: 110%; bottom: 80%; }
+}
+
+@keyframes bird_animate3 {
+0% { right: -30%; bottom: 30%; }
+25% { right: 40%; bottom: 50%; }
+50% { right: 80%; bottom: 70%; }
+75% { right: 97%; bottom: 25%; }
+100% { right: 110%; bottom: 40%; }
+}
+
+@keyframes bird_animate4 {
+0% { right: -30%; bottom: 70%; }
+25% { right: 20%; bottom: 30%; }
+50% { right: 60%; bottom: 70%; }
+75% { right: 74%; bottom: 45%; }
+100% { right: 110%; bottom: 80%; }
+}
+
+@keyframes bird_animate6 {
+0% { left: -30%; bottom: 60%; }
+25% { left: 40%; bottom: 40%; }
+50% { left: 70%; bottom: 52%; }
+75% { left: 97%; bottom: 25%; }
+100% { left: 110%; bottom: 30%; }
+}
+
+@keyframes bird_animate5 {
+0% { right: -30%; bottom: 30%; }
+25% { right: 40%; bottom: 10%; }
+50% { right: 80%; bottom: 60%; }
+75% { right: 90%; bottom: 25%; }
+100% { right: 110%; bottom: 40%; }
+}
+
+#score {
+position: fixed;
+top: 10px;
+right: 1%;
+font-size: 45px;
+color: beige;
+border: 4px seashell solid;
+border-radius: 18px;
+padding:4px;
+width: 200px;
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#scoreTimer {
+position: fixed;
+top: 10px;
+left: 20%;
+font-size: 45px;
+color: white;
+border: 4px seashell solid;
+border-radius: 18px;
+padding:4px;
+width: 450px;
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Modal styles (adjust as needed) */
+.modal {
+display: none;
+position: fixed;
+z-index: 25;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: none;
+padding: 40px;  
+background-color: rgba(0,0,0,0.4);
+ }
+ 
+/* Style for the modal content */
+.modal-content {
+background-color: #F5F5F5; 
+margin: 15% auto;
+padding: 20px;
+border: 8px solid rgb(133, 133, 33); 
+border-radius: 20px;
+width: 30%;
+height: 30%;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ 
+#restartButton {
+border: 2px solid #4A4A4A; 
+color: rgb(133, 133, 33); 
+font-weight:bold;
+font-style:italic;
+font-size: 24px;
+background-color: rgb(229, 229, 212); 
+padding: 12px 24px; 
+margin-left: 150px;
+margin-top: -2%;  
+border-radius: 8px;
+transition: background-color 0.3s ease, color 0.3s ease;
+cursor: pointer;
+ }
+ 
+ /* Hover effect */
+ #restartButton:hover {
+background-color:rgb(133, 133, 33); 
+color: #ECECEC; 
+ }
+ 
+ #exitButton {
+    width: 134px;
+    border: 2px solid #4A4A4A;
+    color: rgb(133, 133, 33);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 24px;
+    background-color: rgb(229, 229, 212);
+    margin-left: 150px;
+    padding: 12px 24px;
+    margin-top: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect for the exit button */
+#exitButton:hover {
+    background-color: rgb(133, 133, 33);
+    color: #ECECEC;
+}
+
+/* Style for the final score */
+#finalScore {
+font-size: 50px; 
+padding: 2px; 
+color: rgb(133, 133, 33);
+font-weight:bold;
+font-style:italic;
+ }
+ 
+
+ p{
+color:rgb(133, 133, 33);
+font-size: 50px;
+padding: 20px;
+margin-left: 20px;
+font-weight:bold;
+font-style:italic;
+ }
+
+ #button_go_back{
+position: fixed;
+top: 10px;
+left: 1%;
+font-size: 45px;
+ width: 114px;
+ padding-left: 40px;
+ padding-right: 20px;
+height: 57px;
+color: seashell;
+border: 4px seashell solid;
+border-radius: 18px;
+padding:3px;
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+
+
+</style>
+
+    <!-- JAVA SCRIPT -->
+<script >
+let score = 0;
+let Timecounter = 15;
+let gameOver = false;
+
+
+//  to store the bird elements
+// added a 'bird' class to bird elements
+const birds = document.querySelectorAll(".bird"); 
+
+// Object to store timers for each bird
+// use to manage the timer for each bird
+const birdTimers = {};
+
+// this function bring back the bird
+function resetBird(bird) {
+bird.style.display = "block";
+}
+
+// TIMER 
+setInterval(() => {
+if (Timecounter >= 0) {
+document.getElementById("currentTimer").innerHTML = Timecounter;
+Timecounter--;
+} 
+else 
+{
+showGameOverPopup();
+}
+}, 1000);
+
+// GAME OVER POPUP
+function showGameOverPopup()
+ {
+        // Set the game-over flag
+            gameOver = true; 
+            document.getElementById("gameOverModal").style.display = "block";
+            document.getElementById("finalScore").innerHTML = score;
+
+        // Function to restart the game when the restart button is clicked
+            document.getElementById("restartButton").addEventListener("click", restartGame);
+
+            document.getElementById("exitButton").addEventListener("click", exitGame);
+}
+
+// when we click on restart this function will be call
+function restartGame() 
+{
+    location.reload();
+}
+
+// Function to exit the game and redirect to secondpage.html
+function exitGame() 
+{
+    window.location.href = "../HOMEPAGE/homepage_index.html";
+}
+
+// when we click to hunt the bird that appears on screen then this function will call 
+window.onclick = function hunt(hunt) 
+{
+        if(Timecounter < 0)
+        {
+        return;
+        }
+        
+        if (hunt.target.nodeName=="IMG") 
+        {
+                const clickedBird = hunt.target;
+                clickedBird.style.display = "none";
+                document.getElementById("shoot").play();
+
+                    if (clickedBird.id == "b6") 
+                    {
+                        score += 5;
+                    } 
+                    else
+                    {
+                    score++;
+                    }
+                    document.getElementById("current_score").innerHTML = score;
+
+                    birdTimers[clickedBird.id] = setTimeout(() => {
+                    resetBird(clickedBird);
+                    }, 6000);
+
+        } 
+        else
+        {
+                    document.getElementById("miss_shoot").play();
+                    score--;
+                    score = Math.max(score, 0);
+                    document.getElementById("current_score").innerHTML = score;
+        }
+}
+
+</script>
+
+
+</head>
+<body>
+
+    
+    <div class="time_and_score">
+       <!-- back button -->
+            <a id="exit_from_between" href="../HOMEPAGE/homepage_index.html"><div id="button_go_back">BACK</div></a> 
+       <!-- it will display score-->
+            <div id="score">score:<span id="current_score">0</span></div>
+       <!-- it will display timer-->
+            <div id="scoreTimer">Time Counter : <span id="currentTimer"> </span> s</div>
+    </div>
+
+    <div class="window">
+        <!-- birds -->
+            <img id="b1" class="bird" onclick="hunt(this)" src="bird2.gif">
+            <img id="b2" class="bird" onclick="hunt(this)" src="bird2.gif">
+            <img id="b3" class="bird" onclick="hunt(this)" src="bird1.gif">
+            <img id="b4" class="bird" onclick="hunt(this)" src="bird1.gif">
+            <img id="b5" class="bird" onclick="hunt(this)" src="bird3.gif">  
+            <img id="b6" class="bird" onclick="hunt(this)" src="bird5.gif">
+
+            <!-- when the bird get hunt  -->
+            <audio id="shoot">
+                <source src="assets_fire3.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- when we misses the shot -->
+            <audio id="miss_shoot" >
+                <source src="miss_shot.mp3" type="audio/mpeg">
+            </audio>
+       
+   </div>
+
+   
+    <!-- The modal -->
+    <div id="gameOverModal" class="modal" >
+        <div class="modal-content">
+            <div>
+                <p>Total Score is: <span id="finalScore"></span></p>
+            </div>
+
+            <div id="button_model">
+
+                <div id="button_for_model">
+                    <button id="restartButton">Restart</button><br>
+                    <button id="exitButton">Exit</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+   </div>
+ 
+
+</body>
+</html>
