@@ -15,5 +15,11 @@ With each successful shot, the player is rewarded with points.
 -> The goal of the game is to shoot as many birds as possible in 50 seconds.
 -> The counter shows how many targets you hit in the 50 seconds.
 -> There is no limit in bullets.
+  # how to play:-
+-> Use your mouse to aim at the birds on the screen.
+-> Click the left mouse button to shoot.
+-> Try to shoot as many Birds as possible within the 50-second time limit.
+-> Keep an eye on the counter to see how many birds you've hit during the game.
+
 
 
