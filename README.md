@@ -45,8 +45,10 @@ With each successful shot, the player is rewarded with points.
 -> Each successful whack earns 10 points for player, but if player click on plant then game will be over.
 
 
-
-
-
+# Conclusion
+-> Know the latest technology and tools.
+-> how to Improved game quality Greater Flexibility
+-> How to Increased Creativity Testing Phase 
+->Include  game design, scripting, creation of digital assets, animations, problem solving, critical thinking, collaboration, and project management
 
 
