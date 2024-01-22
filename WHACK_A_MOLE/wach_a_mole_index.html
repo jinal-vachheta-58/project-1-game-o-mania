@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set the character set and viewport for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the webpage -->
+    <title>Whack a Mole</title>
+
+    <style>
+        /* Global styling for the entire body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: url("./mariobg.png");
+    background-size: cover; /* Cover the entire background */
+}
+
+/* Styling for the game board */
+#board {
+    width: 540px;
+    height: 540px;
+    margin: 0 auto; /* Center the board horizontally */
+    display: flex;
+    flex-wrap: wrap; /* Wrap tiles to the next row */
+    background: url("./soil.png");
+    background-size: cover;
+    border: 3px solid white;
+    border-radius: 25px;
+}
+
+/* set the  pipe on the game board */
+#board div {
+    width: 180px;
+    height: 180px;
+    background-image: url("./pipe.png");
+    background-size: cover;
+}
+#gameOverModal,h1,h2,img {
+    user-select: none; /* Disable user selection on images */
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+body {
+  user-select: none;
+}
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 25px;
+    margin-top: 17px;
+}
+/* Styling for images inside each tile */
+#board div img {
+    width: 100px;
+    height: 100px;
+    user-select: none; /* Disable user selection on images */
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+/*  ___________________________________________________________________________________*/
+
+/* Styling for the game over modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 25;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: none;
+    padding: 40px;  
+    background-color: rgba(0,0,0,0.4);
+}
+#button_for_model{
+    margin-top: -14%;
+}
+
+
+/* Styling for the modal content */
+.modal-content {
+    width: 60%;
+    max-width: 400px;
+    background-color: #F5F5F5;
+    margin: 15% auto;
+    border: 8px solid rgb(133, 133, 33);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Display as a flex container */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center children horizontally */
+}
+/* Styling for the restart button in the modal */
+#restartButton {
+    margin-top: -14%;
+    border: 2px solid #4A4A4A;
+    color: rgb(133, 133, 33);
+    font-weight:bold;
+    font-style:italic;
+    font-size: 24px;
+    background-color: rgb(229, 229, 212);
+    padding: 12px 24px;
+    margin-left: 150px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    width: 160px;
+    margin-left: auto;
+}
+
+/* Hover effect for the restart button */
+#restartButton:hover {
+    background-color:rgb(133, 133, 33);
+    color: #ECECEC;
+}
+/* Styling for the exit button in the modal */
+#exitButton {
+    width: 160px;
+    border: 2px solid #4A4A4A;
+    color: rgb(133, 133, 33);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 24px;
+    background-color: rgb(229, 229, 212);
+    margin-left: 150px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+/* Hover effect for the exit button */
+#exitButton:hover {
+    background-color: rgb(133, 133, 33);
+    color: #ECECEC;
+}
+
+/* Styling for the final score in the modal */
+#finalScore {
+    font-size: 50px;
+    padding: 2px;
+    color: rgb(133, 133, 33);
+    font-weight:bold;
+    font-style:italic;
+}
+
+/* Additional styling for a paragraph element */
+p {
+    color: rgb(133, 133, 33);
+    padding: 20px;
+    margin-left: 20px;
+    font-weight:bold;
+    font-style:italic;
+    margin-top: 0%;
+    font-size: 55px;
+    height: 0%;
+}
+
+
+#button_go_back{
+position: fixed;
+top: 10px;
+left: 90%;
+font-size: 45px;
+width: 114px;
+padding-left: 40px;
+padding-right: 20px;
+height: 57px;
+color: rgb(6, 6, 6);
+border: 4px rgb(10, 10, 10) solid;
+background-color: rgb(36, 147, 79);
+border-radius: 18px;
+padding:3px;
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+
+#button_go_back:hover {
+    background-color:rgb(36, 147, 79);
+    color: #ECECEC;
+    
+}
+/* ______________________________________________________________________________*/
+  
+  </style>
+    <script>
+    // Variables to track current mole and plant tiles, score, and game over status
+        let currMoleTile;
+        let currPlantTile;
+        let score = 0;
+        let gameOver = false;
+        
+        // Function to be executed when the webpage is fully loaded
+        window.onload = function() {
+            setgame(); // Call the setgame function to initialize the game
+        }
+        
+        // Function to set up the game
+        function setgame() {
+            // Set up the grid in HTML
+            for (let i = 0; i < 9; i++) {
+                let tile = document.createElement("div");
+                tile.id = i.toString();
+                tile.addEventListener("click", selectTile);
+                document.getElementById("board").appendChild(tile); 
+            }
+        
+            // Set intervals to call setMole and setPlant functions every second
+            setInterval(setMole, 1000);
+            setInterval(setPlant, 1800);
+        }
+        
+        // Function to get a random tile ID
+        function getRandomTile() {
+            let num = Math.floor(Math.random() * 9);
+            return num.toString();
+        }
+        
+        // Function to set the mole on a random tile
+        function setMole() {
+            if (gameOver) {
+                return;
+            }
+        
+            // Clear the current mole tile
+            if (currMoleTile) {
+                currMoleTile.innerHTML = "";
+            }
+        
+            // Create an image element for the mole
+            let mole = document.createElement("img");
+            mole.src = "./monty-mole.png";
+        
+            // Get a random tile for the mole
+            let num = getRandomTile();
+        
+            // Check if the plant is on the same tile, if so, do nothing and return
+            if (currPlantTile && currPlantTile.id == num) {
+                return;
+            }
+        
+            // Show the mole image on the selected random tile
+            currMoleTile = document.getElementById(num);
+            currMoleTile.appendChild(mole);
+        }
+        
+        // Function to set the plant on a random tile
+        function setPlant() {
+            if (gameOver) {
+                return;
+            }
+        
+            // Clear the current plant tile
+            if (currPlantTile) {
+                currPlantTile.innerHTML = "";
+            }
+        
+            // Create an image element for the plant
+            let plant = document.createElement("img");
+            plant.src = "./piranha-plant.png";
+        
+            // Get a random tile for the plant
+            let num = getRandomTile();
+        
+            // Check if the mole is on the same tile, if so, do nothing and return
+            if (currMoleTile && currMoleTile.id == num) {
+                return;
+            }
+        
+            // Show the plant image on the selected random tile
+            currPlantTile = document.getElementById(num);
+            currPlantTile.appendChild(plant);
+        }
+        
+        // Function to handle tile selection
+        function selectTile() {
+            if (gameOver) {
+                return;
+            }
+        
+            // Check if the selected tile contains the mole or the plant
+            if (this == currMoleTile) {
+                // If the mole is whacked, increase the score by 10
+                score += 10;
+                // Update the score displayed in the HTML
+                document.getElementById("score").innerText = "SCORE : " + score.toString();
+            }
+             else if (this == currPlantTile) {
+                // If the plant is selected, end the game and display the final score
+                document.getElementById("score").innerText = "GAME OVER: " + score.toString();
+                
+                showGameOverModal(); // Show the game over modal
+                gameOver = true;
+            }
+        }
+
+        // Function to show the game over modal
+        function showGameOverModal() {
+            // Set the final score in the modal
+            document.getElementById("finalScore").innerText = score.toString();
+            // Display the game over modal
+            document.getElementById("gameOverModal").style.display = "flex";
+
+               // Add event listener to the restart button in the popup
+    document.getElementById("restartButton").addEventListener("click", restartGame);
+    // Add event listener to the exit button in the popup
+document.getElementById("exitButton").addEventListener("click", exitGame);
+        }
+        /*  _____________________________________________*/
+
+        
+// Function to exit the game and redirect to secondpage.html
+function exitGame() {
+    window.location.href = "../HOMEPAGE/homepage_index.html";
+}
+// Function to restart the game
+function restartGame() {
+    // Reload the page to restart the game
+    location.reload();
+}
+        /*_______________________________________________*/        </script>
+</head>
+<body>
+    <!-- Main heading for the Whack a Mole game -->
+    <h1>Whack a Mole</h1>
+    
+    <!-- Display the current score -->
+    <h2 id="score">0</h2>
+    <a id="exit_from_between" href="../HOMEPAGE/homepage_index.html"><div id="button_go_back">BACK</div></a> 
+
+    <!-- Game board container with id "board" -->
+    <!-- The grid structure (3x3) for the mole whacking game will be dynamically generated here -->
+    <div id="board">
+        
+        
+    </div>
+    <div id="gameOverModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div>
+                <p>Score : <span id="finalScore"></span></p>
+            </div>
+            <div id="button_model">
+                <div id="button_for_model">
+                    <button id="restartButton">Restart</button><br>
+                    <button id="exitButton">Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
