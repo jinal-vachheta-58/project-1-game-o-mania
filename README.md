@@ -33,7 +33,7 @@ With each successful shot, the player is rewarded with points.
 
 
 
-# GAME 1 : Whack a mole :-
+# GAME 3 : Whack a mole :-
 -> We have designed a web-based Whack-a-Mole  game using Html, Css and Javascript.
 -> The appearance of mole and plant are randomized, providing an unpredictable challenge for players.
 -> The game's functionality is powered by JavaScript, which controls the mole animations, plant animation, and score tracking.
