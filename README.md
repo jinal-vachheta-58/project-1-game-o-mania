@@ -85,6 +85,17 @@ Through this project, we gained practical experience in:
 - Critical thinking, creative design, and interactive UI building
 - Project planning, teamwork, and problem-solving
 
+  
+## 🖼️ Screenshots
+
+### 🐦 Hunting Bird
+![Hunting Bird](screenshots/hunting-bird.png)
+
+### ✊✋✌️ Stone Paper Scissors
+![Stone Paper Scissors](screenshots/rock-paper-scissors.png)
+
+### 🕳️ Whack-a-Mole
+![Whack-a-Mole](screenshots/whack-a-mole.png)
 ---
 
 ## 🔗 Live Site
