@@ -53,6 +53,27 @@ A fun reflex-based game where moles pop out of holes randomly.
 - Avoid clicking on the plants.
 - Score as high as you can!
 
+  ---
+
+## 🛠️ Tools & Technologies Used
+
+- **HTML5** – Structuring content and UI elements
+- **CSS3** – Styling, animation, and responsive layout
+- **JavaScript** – Game logic and user interaction
+- **VS Code** – Code editing
+- **Git & GitHub** – Version control and hosting
+- **Google Chrome** – Testing and debugging
+
+---
+
+## 🎯 Objective
+
+To demonstrate how front-end web technologies—HTML, CSS, and JavaScript—can be effectively integrated to build engaging, interactive browser games focused on responsiveness and user experience.
+
+- **Hunting Bird:** Boosts aim and timing  
+- **Stone Paper Scissors:** Tests decision-making under uncertainty  
+- **Whack-a-Mole:** Enhances hand-eye coordination and reflexes
+
 ---
 
 ## 🧠 Conclusion
