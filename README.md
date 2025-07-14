@@ -1,54 +1,75 @@
-# project-1-game-o-mania
 
-“GAME-O-MANIA” is an web game with many sub-games like :
-1.Hunting bird
-2.Whack a mole
-3.Rock paper scissor
+# 🎮 Game-O-Mania
 
-# GAME 1 : Hunting bird :-
--> Hunting Bird is a shooting game in which players have to shoot down the birds that appear on the screen.
--> This game is designed to test player's shooting skills.
-With each successful shot, the player is rewarded with points.
--> In this game two types of birds ordinary bird and bonus bird, bonus bird is set with different functionality. 
--> When a user shoots the ordinary bird, the user will get 1 points, and when the user shoots the bonus bird, the user will get 5 points. 
--> If the user misses the shot, the score will decrease by 1 point.
--> The goal of the game is to shoot as many birds as possible in 50 seconds.
--> The counter shows how many targets you hit in the 50 seconds.
--> There is no limit in bullets.
-  # how to play:-
--> Use your mouse to aim at the birds on the screen.
--> Click the left mouse button to shoot.
--> Try to shoot as many Birds as possible within the 50-second time limit.
--> Keep an eye on the counter to see how many birds you've hit during the game.
+**Game-O-Mania** is a web-based mini game arcade built using HTML, CSS, and JavaScript. It features a collection of simple yet fun games that test your reflexes, logic, and attention.
 
-# GAME 2 : Rock paper scissors :-
--> simple rules of Rock, Paper, Scissors
-  Rock crushes scissors.
-  Scissors cuts paper.
-  Paper covers rock.
-  # how to play:-
--> Players make their choice by clicking on the virtual representations of Rock, Paper, or Scissors.
--> Face off against a computer opponent programmed to make randomized choices.
--> The game's logic determines the winner based on the classic Rock, Paper, Scissors rules.
+> 🔗 **[Play Live Now](https://jinal-vachheta-58.github.io/project-1-game-o-mania/HOMEPAGE/homepage_index.html)**
 
+---
 
+## 🕹️ Games Included
 
-# GAME 3 : Whack a mole :-
--> We have designed a web-based Whack-a-Mole  game using Html, Css and Javascript.
--> The appearance of mole and plant are randomized, providing an unpredictable challenge for players.
--> The game's functionality is powered by JavaScript, which controls the mole animations, plant animation, and score tracking.
-->One user can play game at a time.
+### 1. 🐦 Hunting Bird
+A shooting game where players aim to shoot birds appearing on the screen.
 
-  # how to play:-
--> Mole and plant pop up from different holes at varying intervals.
--> Players use their mouse to interact with the game, clicking on moles to whack them.
--> Each successful whack earns 10 points for player, but if player click on plant then game will be over.
+- 🏹 Shoot ordinary birds: **+1 point**
+- 🦜 Shoot bonus birds: **+5 points**
+- ❌ Miss a shot: **-1 point**
+- 🕒 Game duration: **50 seconds**
+- 🔄 Unlimited bullets
 
+#### 🎯 How to Play
+- Use your **mouse** to aim.
+- **Left-click** to shoot.
+- Hit as many birds as you can within the time limit.
+- Keep track of your score via the counter.
 
-# Conclusion
--> Know the latest technology and tools.
--> how to Improved game quality Greater Flexibility
--> How to Increased Creativity Testing Phase 
-->Include  game design, scripting, creation of digital assets, animations, problem solving, critical thinking, collaboration, and project management
+---
+
+### 2. ✊✋✌️ Rock, Paper, Scissors
+
+Play against the computer in this digital version of the classic hand game.
+
+- 🪨 Rock crushes Scissors  
+- ✂️ Scissors cuts Paper  
+- 📄 Paper covers Rock
+
+#### 🎮 How to Play
+- Click on **Rock**, **Paper**, or **Scissors**.
+- The computer makes a random choice.
+- The game decides the winner using the standard rules.
+
+---
+
+### 3. 🕳️ Whack-a-Mole
+
+A fun reflex-based game where moles pop out of holes randomly.
+
+- 🐹 Whack a mole: **+10 points**
+- 🌱 Click a plant: **Game Over**
+
+#### 🎮 How to Play
+- Use your **mouse** to click on moles.
+- Avoid clicking on the plants.
+- Score as high as you can!
+
+---
+
+## 🧠 Conclusion
+
+Through this project, we gained practical experience in:
+
+- Front-end development with **HTML, CSS, and JavaScript**
+- Game logic, DOM manipulation, and animations
+- Critical thinking, creative design, and interactive UI building
+- Project planning, teamwork, and problem-solving
+
+---
+
+## 🔗 Live Site
+
+👉 [Click here to play Game-O-Mania](https://jinal-vachheta-58.github.io/project-1-game-o-mania/HOMEPAGE/homepage_index.html)
+
+---
 
 
