@@ -24,6 +24,9 @@ A shooting game where players aim to shoot birds appearing on the screen.
 - Hit as many birds as you can within the time limit.
 - Keep track of your score via the counter.
 
+### 🐦 Hunting Bird
+![Hunting Bird](Game-O-Mania_ScreenShots/hunting-bird.png)
+
 ---
 
 ### 2. ✊✋✌️ Rock, Paper, Scissors
@@ -39,6 +42,9 @@ Play against the computer in this digital version of the classic hand game.
 - The computer makes a random choice.
 - The game decides the winner using the standard rules.
 
+### ✊✋✌️ Stone Paper Scissors
+![Stone Paper Scissors](Game-O-Mania_ScreenShots/rock-paper-scissors.png)
+
 ---
 
 ### 3. 🕳️ Whack-a-Mole
@@ -52,6 +58,9 @@ A fun reflex-based game where moles pop out of holes randomly.
 - Use your **mouse** to click on moles.
 - Avoid clicking on the plants.
 - Score as high as you can!
+
+### 🕳️ Whack-a-Mole
+![Whack-a-Mole](Game-O-Mania_ScreenShots/whack-a-mole.png)
 
   ---
 
@@ -84,19 +93,6 @@ Through this project, we gained practical experience in:
 - Game logic, DOM manipulation, and animations
 - Critical thinking, creative design, and interactive UI building
 - Project planning, teamwork, and problem-solving
-
----
-
-## 🖼️ Screenshots
-
-### 🐦 Hunting Bird
-![Hunting Bird](Game-O-Mania_ScreenShots/hunting-bird.png)
-
-### ✊✋✌️ Stone Paper Scissors
-![Stone Paper Scissors](Game-O-Mania_ScreenShots/rock-paper-scissors.png)
-
-### 🕳️ Whack-a-Mole
-![Whack-a-Mole](Game-O-Mania_ScreenShots/whack-a-mole.png)
 
 ---
 
